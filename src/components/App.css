@@ -38,7 +38,7 @@ text-align: left;
   font-size: large;
 }
 .Listcontainer{
-   background-color: #ffffff;
+   background-color: #FFF;
    display: grid;
    grid-template-columns: auto auto auto;
    padding: 10px;

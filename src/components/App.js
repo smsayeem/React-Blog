@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Route, Switch} from 'react-router'
 import Portfolio from './Portfolio'
+import SingleView from './SingleView'
 import './App.css';
 
 class App extends Component {
@@ -13,19 +14,20 @@ class App extends Component {
             "id": 1001,
             "title": "Post one",
             "image": "http://via.placeholder.com/450x250",
-            "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus ipsam consectetur esse, dicta sapiente amet aut, nulla maiores minus odio dignissimos ullam alias maxime. Quia inventore ipsa accusantium eius sed! .Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nobis quidem, nam velit sit facilis, tempora voluptatem tenetur cum placeat hic autem voluptate sint maxime vel earum eum optio cumque!"
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fuga accusantium porro mollitia nostrum officia, cumque, esse error tempora quo explicabo voluptate dolores eligendi, voluptas culpa iusto voluptatum doloribus eaque!Lorem Lorem minus odio dignissimos ullam alias "
           },
+          
           {
             "id": 1002,
             "title": "Post Two",
             "image": "http://via.placeholder.com/450x250",
-            "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus ipsam consectetur esse, dicta sapiente amet aut, nulla maiores minus odio dignissimos ullam alias maxime. Quia inventore ipsa accusantium eius sed! .Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nobis quidem, nam velit sit facilis, tempora voluptatem tenetur cum placeat hic autem voluptate sint maxime vel earum eum optio cumque!"
-          },
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fuga accusantium porro mollitia nostrum officia, cumque, esse error tempora quo explicabo voluptate dolores eligendi, voluptas culpa iusto voluptatum doloribus eaque! Lor adipisicing elit. Nulla maiores."
+          }, 
           {
             "id": 1003,
             "title": "Post Three",
             "image": "http://via.placeholder.com/450x250",
-            "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus ipsam consectetur esse, dicta sapiente amet aut, nulla maiores minus odio dignissimos ullam alias maxime. Quia inventore ipsa accusantium eius sed! .Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nobis quidem, nam velit sit facilis, tempora voluptatem tenetur cum placeat hic autem voluptate sint maxime vel earum eum optio cumque!"
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fuga accusantium porro mollitia nostrum officia, cumque, esse error tempora quo explicabo voluptate dolores eligendi, voluptas culpa iusto voluptatum doloribus eaque! Lorem ipsum dolor sit amet consectetur, !"
           }
       ] 
     }
@@ -56,33 +58,37 @@ class App extends Component {
             <h1 className="App-title">Welcome to ReactJS Blog App</h1>
           </header>
         </div>
-        {/* <Switch>
-          Route exact path='/' render={()=>(
+        <Switch>
+          <Route exact path='/' render={()=>(
             <Portfolio 
-                key ={data_value.id} 
-                post = {data_value} 
+                {...this.state}
                 deletePost = {this.handleDelete}
                 viewPost = {this.handleSingleView}
               />
           )} />
-        </Switch> */}
-        <div className="Listcontainer">
+          <Route path='/:postID' render={(props)=>(
+            <SingleView {...this.state} {...props}/>
+          )} />
+        </Switch>
+
+        {/* <div className="Listcontainer">
           {
-            this.state.posts.map((data_value)=>( 
+            this.state.posts.map((post_value)=>( 
               <Portfolio 
-                key ={data_value.id} 
-                post = {data_value} 
+                key ={post_value.id} 
+                posts = {post_value} 
                 deletePost = {this.handleDelete}
                 viewPost = {this.handleSingleView}
               />
             ))
           }
-        </div> 
+        </div>  */}
 
 
       </div>
     );
   }
 }
+
 
 export default App;
